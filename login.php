@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Se connecter</title>
+</head>
+<body>
+    <form action="api/loginep.php" method="post">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" name="username"/>
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password"/>
+        <input type="submit" value="Se connecter" />
+    </form>
+    <p>Sinon, vous pouvez <a href="register.php">vous créer un compte</a></p>
+    <?php if(isset($_GET["err"])) {
+        if($_GET["err"] == "u") {
+            echo "<p>Ce nom d'utilisateur est inconnu</p>";
+        }
+        if($_GET["err"] == "p") {
+            echo "<p>Mot de passe incorrect</p>";
+        }
+    }
+    ?>
+</body> 
+</html>
